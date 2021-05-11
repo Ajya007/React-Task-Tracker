@@ -50,8 +50,7 @@ const reminderHandler = (e) =>{
 
 const submitHandler = (e) =>{
   e.preventDefault();
-  const id=Math.random()*10000;
-  setTasks([   ...tasks,{ text:text,day:day,reminder:reminder, id:id}]);
+  setTasks([   ...tasks,{ text:text,day:day,reminder:reminder, id:Math.random()*10000}]);
   setText('');
   setDay('');
   setReminder(false);
@@ -67,14 +66,22 @@ const deleteHandler= (id) =>{
     ))
  };
 
+ const[addtask,setADDTask]=useState(false);
+
+ const AddTaskHandler = () => {
+   setADDTask(!addtask);
+ }
 
   return (
     <>
 
     <div className="App">
       <div className="container">
-      <Header />
-      <Form 
+      <Header
+      AddTaskHandler={AddTaskHandler}
+      addtask={addtask}
+       />
+      {addtask &&  <Form 
        textHandler={textHandler}
         dayHandler={dayHandler} 
         reminderHandler={reminderHandler}
@@ -82,7 +89,8 @@ const deleteHandler= (id) =>{
         text={text}
         day={day}
         reminder={reminder}
-        />
+        />}
+     
       <Tasks 
       tasks={tasks} 
       setTasks={setTasks}
