@@ -15,7 +15,8 @@
 .App{
   border:1px solid black;
   width: 500px;
-  min-height: 600px;
+  height: 500px;
+  overflow: scroll;
   margin: auto;
   position: absolute;
   top:50%;

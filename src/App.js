@@ -32,7 +32,30 @@ const [tasks,setTasks]=useState([
   }
 ]);
 
+const [text,setText]=useState('');
+const [day,setDay]=useState('');
+const [reminder,setReminder]=useState(false);
 
+ const textHandler = (e) =>{
+  setText(e.target.value);
+
+}
+ const dayHandler= (e) =>{
+  setDay(e.target.value);
+
+}
+const reminderHandler = (e) =>{
+  setReminder(e.currentTarget.checked);
+}
+
+const submitHandler = (e) =>{
+  e.preventDefault();
+  const id=Math.random()*10000;
+  setTasks([   ...tasks,{ text:text,day:day,reminder:reminder, id:id}]);
+  setText('');
+  setDay('');
+  setReminder(false);
+}
 const deleteHandler= (id) =>{
   setTasks(tasks.filter((el) =>
   el.id !== id)
@@ -51,7 +74,15 @@ const deleteHandler= (id) =>{
     <div className="App">
       <div className="container">
       <Header />
-      <Form />
+      <Form 
+       textHandler={textHandler}
+        dayHandler={dayHandler} 
+        reminderHandler={reminderHandler}
+        submitHandler={submitHandler}
+        text={text}
+        day={day}
+        reminder={reminder}
+        />
       <Tasks 
       tasks={tasks} 
       setTasks={setTasks}
