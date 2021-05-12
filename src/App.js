@@ -1,8 +1,11 @@
 import './App.css';
 import { useState } from "react";
+import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Header from './Components/Header.js';
 import Tasks from './Components/Tasks.js';
-import Form from './Components/Form.js'
+import Form from './Components/Form.js';
+import About from './Components/About.js'
+import Footer from './Components/Footer.js'
 
 
 
@@ -74,14 +77,17 @@ const deleteHandler= (id) =>{
 
   return (
     <>
-
+<Router>
     <div className="App">
       <div className="container">
       <Header
       AddTaskHandler={AddTaskHandler}
       addtask={addtask}
        />
-      {addtask &&  <Form 
+
+       <Route path="/" exact render={(props) =>(
+         <>
+ {addtask &&  <Form 
        textHandler={textHandler}
         dayHandler={dayHandler} 
         reminderHandler={reminderHandler}
@@ -97,9 +103,16 @@ const deleteHandler= (id) =>{
        deleteHandler={deleteHandler}
        reminderToggle={reminderToggle}
        />
+
+         </>
+       ) } />
+     
+
+       <Route path="/about" component={About} />
+        <Footer />
        </div>
     </div>
-     
+    </Router>
     </>
   );
 }

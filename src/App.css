@@ -15,7 +15,7 @@
 .App{
   border:1px solid black;
   width: 500px;
-  height: 500px;
+  height: 600px;
   overflow: scroll;
   margin: auto;
   position: absolute;
@@ -111,4 +111,12 @@
     width: 300px;
     outline: none;
     border: none;
+  }
+.about{
+  padding: 20px 0px;
+}
+  .footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0px;
   }
