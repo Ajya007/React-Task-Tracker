@@ -119,4 +119,25 @@
   width: 100%;
   text-align: center;
   padding: 20px 0px;
+
+  }
+
+  @media only screen and (max-width:468px) {
+
+    .App{
+      border:1px solid black;
+      width: 96vw;
+      min-height: 96vh;
+      overflow: scroll;
+      margin: auto;
+      position: absolute;
+      top:0;
+      left:0;
+      transform: translate(0,0);
+    }
+    .form-control{
+      padding: 15px 0;
+    }
+    
+    
   }
