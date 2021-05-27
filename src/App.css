@@ -137,7 +137,11 @@
     }
     .form-control{
       padding: 15px 0;
+    }  
+    .form-control input{
+      width:96%;
     }
+
     
     
   }

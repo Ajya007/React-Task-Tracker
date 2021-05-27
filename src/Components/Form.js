@@ -1,5 +1,10 @@
 const Form = ({textHandler,dayHandler,reminderHandler,submitHandler,text,day,reminder}) =>{
 
+  const submitWatcher = (e) => {
+    e.preventDefault()
+    submitHandler();
+  }
+
     return(
         <form className="addForm">
             <div className='form-control'>
@@ -15,7 +20,7 @@ const Form = ({textHandler,dayHandler,reminderHandler,submitHandler,text,day,rem
               <input type="Checkbox"  checked={reminder} onChange={reminderHandler} />
               </div>
             <div className="save-btn">
-              <button onClick={submitHandler}type="submit">Save Task</button>
+              <button onClick={submitWatcher} type="submit">Save Task</button>
               </div>
 
 
