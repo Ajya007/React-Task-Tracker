@@ -25,24 +25,5 @@
       "id": 4
     }
   ],
-  "masks": [
-    {
-      "id": 1,
-      "text": "Dentist Appointment",
-      "day": "Jan 10th at 9:00 am",
-      "reminder": false
-    },
-    {
-      "id": 2,
-      "text": "Taking Out trash",
-      "day": "Feb 10th at 9:00 am",
-      "reminder": false
-    },
-    {
-      "id": 3,
-      "text": "Meeting With Boss",
-      "day": "March 10th at 9:00 am",
-      "reminder": false
-    }
-  ]
+
 }
