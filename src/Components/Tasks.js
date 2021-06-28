@@ -8,7 +8,7 @@ const Tasks = ({tasks,deleteHandler,reminderToggle}) =>{
            {tasks.map((task) => {
                return(
                    <Task
-                    key={task.id}
+                    key={task._id}
                     deleteHandler={deleteHandler}
                     task={task}
                     reminderToggle={reminderToggle}/>

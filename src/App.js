@@ -41,16 +41,19 @@ useEffect(() => {
 
   
 }
-,[])
+,[tasks])
 
 const fetchTasks = async () =>{
-  const res = await fetch("http://localhost:5000/tasks");
+  const res = await fetch("https://node-app-tasktracker.herokuapp.com/tasks");
+
   const data = await res.json();
+
   return data;
+ 
 }
 
 const fetchTask = async (id) =>{
-  const res = await fetch(`http://localhost:5000/tasks/${id}`);
+  const res = await fetch(`https://node-app-tasktracker.herokuapp.com/tasks/${id}`);
   const data = await res.json();
   return data;
 }
@@ -60,7 +63,7 @@ const fetchTask = async (id) =>{
 const submitHandler = async () =>{
 
   const task = {text,day,reminder};
-const res = await fetch('http://localhost:5000/tasks',{
+const res = await fetch('https://node-app-tasktracker.herokuapp.com/tasks',{
   method: 'POST',
   headers:{
     'Content-type':'application/json'
@@ -84,27 +87,27 @@ setTasks([...tasks,data]);
 
 
 const deleteHandler= async (id) =>{
-  await fetch(`http://localhost:5000/tasks/${id}`,{
+  await fetch(`https://node-app-tasktracker.herokuapp.com/tasks/${id}`,{
   method :'DELETE'
 })
   setTasks(tasks.filter((el) =>
-  el.id !== id)
+  el._id !== id)
  )};
 
  const reminderToggle = async (id) =>{
   const taskToToggle = await fetchTask(id);
-  const updatedTask = {...taskToToggle,reminder : !taskToToggle.reminder}
-  const res = await fetch(`http://localhost:5000/tasks/${id}`,{
-    method: 'PUT',
+  const updatedTask = {reminder : !taskToToggle.reminder}
+  await fetch(`https://node-app-tasktracker.herokuapp.com/tasks/${id}`,{
+    method: 'PATCH',
     headers:{
       'Content-type':'application/json'
     },
     body:JSON.stringify(updatedTask)
   })
-
-  const data = await res.json();
+  const newres = await fetch(`https://node-app-tasktracker.herokuapp.com/tasks/${id}`)
+  const data = await newres.json();
     setTasks(tasks.map((el) =>
-      el.id===id ? {...el, reminder: data.reminder } : el
+      el._id===id ? {...el, reminder: data.reminder } : el
     ))
  };
 
