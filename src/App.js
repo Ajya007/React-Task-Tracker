@@ -120,6 +120,7 @@ const deleteHandler= async (id) =>{
   return (
     <>
 <Router>
+  <div className="whole-app">
     <div className="App">
       <div className="container">
       <Header
@@ -153,6 +154,8 @@ const deleteHandler= async (id) =>{
        <Route path="/about" component={About} />
         <Footer />
        </div>
+    </div>
+
     </div>
     </Router>
     </>
