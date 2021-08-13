@@ -37,11 +37,12 @@ useEffect(() => {
     setTasks(taskFromServer);
   }
   getTask();
+  console.log(tasks)
 
 
   
 }
-,[tasks])
+,[])
 
 const fetchTasks = async () =>{
   const res = await fetch("https://node-app-tasktracker.herokuapp.com/tasks");
