@@ -31,26 +31,24 @@ const reminderHandler = (e) =>{
 
 
 useEffect(() => {
+  const fetchTasks = async () =>{
+  const res = await fetch("https://node-app-tasktracker.herokuapp.com/tasks");
 
-  const getTask= async () =>{
-    const taskFromServer = await fetchTasks();
-    setTasks(taskFromServer);
-  }
-  getTask();
+  const data = await res.json();
+
+setTasks(data);
+ 
+}
+fetchTasks();
+    
+
 
 
   
 }
 ,[])
 
-const fetchTasks = async () =>{
-  const res = await fetch("https://node-app-tasktracker.herokuapp.com/tasks");
 
-  const data = await res.json();
-
-  return data;
- 
-}
 
 const fetchTask = async (id) =>{
   const res = await fetch(`https://node-app-tasktracker.herokuapp.com/tasks/${id}`);
