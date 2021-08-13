@@ -37,7 +37,6 @@ useEffect(() => {
     setTasks(taskFromServer);
   }
   getTask();
-  console.log(tasks)
 
 
   
