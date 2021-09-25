@@ -143,6 +143,8 @@ const deleteHandler= async (id) =>{
         text={text}
         day={day}
         reminder={reminder}
+error={error}
+
         />}
      
       <Tasks 
