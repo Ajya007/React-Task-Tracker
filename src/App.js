@@ -12,6 +12,7 @@ import Footer from './Components/Footer.js'
 function App() {
   
 const [tasks,setTasks]=useState([]);
+  const [error,setError]=useState('');
 
 const [text,setText]=useState('');
 const [day,setDay]=useState('');
@@ -59,6 +60,10 @@ const fetchTask = async (id) =>{
 
 
 const submitHandler = async () =>{
+  
+  if(!text || !day){
+  setError("Please enter all the feilds")
+  }else{
 
   const task = {text,day,reminder};
 const res = await fetch('https://node-app-tasktracker.herokuapp.com/tasks',{
@@ -72,11 +77,13 @@ const res = await fetch('https://node-app-tasktracker.herokuapp.com/tasks',{
 const data = await res.json();
 
 setTasks([...tasks,data]);
+    
+  
 
   setText('');
   setDay('');
   setReminder(false);
-
+  }
 
 }
 
