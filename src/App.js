@@ -63,6 +63,8 @@ const submitHandler = async () =>{
   
   if(!text || !day){
   setError("Please enter all the feilds")
+    setTimeout(() => {setError("")},3000)
+    
   }else{
 
   const task = {text,day,reminder};
