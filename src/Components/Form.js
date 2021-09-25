@@ -1,4 +1,4 @@
-const Form = ({textHandler,dayHandler,reminderHandler,submitHandler,text,day,reminder}) =>{
+const Form = ({textHandler,dayHandler,reminderHandler,submitHandler,text,day,reminder,error}) =>{
 
   const submitWatcher = (e) => {
     e.preventDefault()
@@ -7,6 +7,7 @@ const Form = ({textHandler,dayHandler,reminderHandler,submitHandler,text,day,rem
 
     return(
         <form className="addForm">
+       {error && <p>{error}</p>}
             <div className='form-control'>
               <label>Task</label>
               <input type="text" placeholder="Add Task" value={text}  onChange={textHandler} required="true"/>
