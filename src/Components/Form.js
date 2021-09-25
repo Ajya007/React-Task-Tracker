@@ -7,7 +7,7 @@ const Form = ({textHandler,dayHandler,reminderHandler,submitHandler,text,day,rem
 
     return(
         <form className="addForm">
-       {error && <p>{error}</p>}
+       {error && <p style={{color:"red"}}>{error}</p>}
             <div className='form-control'>
               <label>Task</label>
               <input type="text" placeholder="Add Task" value={text}  onChange={textHandler} required="true"/>
