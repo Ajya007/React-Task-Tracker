@@ -9,11 +9,11 @@ const Form = ({textHandler,dayHandler,reminderHandler,submitHandler,text,day,rem
         <form className="addForm">
             <div className='form-control'>
               <label>Task</label>
-              <input type="text" placeholder="Add Task" value={text}  onChange={textHandler}/>
+              <input type="text" placeholder="Add Task" value={text}  onChange={textHandler} required="true"/>
             </div>
             <div className='form-control'>
               <label>Day and time</label>
-              <input type="text" placeholder="Add Day and Time" value={day}  onChange={dayHandler} />
+              <input type="date" placeholder="Add Day and Time" value={day}  onChange={dayHandler} required="true" />
             </div>
               <div className="reminder">
               <label>Set Reminder</label>
